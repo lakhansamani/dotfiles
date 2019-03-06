@@ -1,4 +1,4 @@
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.vm/plugged')
   Plug 'pangloss/vim-javascript'
   Plug 'mxw/vim-jsx'
   Plug 'jxnblk/vim-mdx-js'
@@ -28,9 +28,10 @@ set hlsearch
 syntax on
 
 " Tab expansion
-set tabstop=2
-set shiftwidth=2
+set shiftwidth=4
 set expandtab
+set softtabstop=0 noexpandtab
+
 
 filetype plugin indent on
 
@@ -55,8 +56,27 @@ let g:prettier#config#single_quote = 'true'
 
 " when running at every change you may want to disable quickfix
 let g:prettier#autoformat = 0
-autocmd BufWritePre,TextChanged,InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
-
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 
 let b:ale_fixers = {'javascript': ['prettier', 'eslint']}
 let g:NERDTreeNodeDelimiter = "\u00a0"
+
+" clear search with shift+enter
+nnoremap <S-CR> :noh<CR>
+
+set clipboard=unnamed
+" copy to clipboard
+map <C-x> :!pbcopy<CR>
+vmap <C-c> :w !pbcopy<CR><CR>
+
+
+" Mappings for moving lines and preserving indentation
+" http://vim.wikia.com/wiki/Moving_lines_up_or_down
+nnoremap <C-j> :m .+1<CR>==
+nnoremap <C-k> :m .-2<CR>==
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
+
+" Navigate faster
+noremap <S-Up> 5k
+noremap <S-Down> 5j
