@@ -1,47 +1,42 @@
 {
-  "editor.multiCursorModifier": "ctrlCmd",
-  "editor.snippetSuggestions": "top",
-  "editor.fontFamily": "Operator Mono, Menlo, Monaco, 'Courier New', monospace",
-  "editor.fontWeight": "300",
+  // Place your settings in this file to overwrite the default settings
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "k"],
+      "after": ["<esc>"]
+    }
+  ],
+  "window.zoomLevel": 0.75,
   "editor.fontSize": 14,
-  "editor.lineHeight": 30,
-  "editor.letterSpacing": 0.5,
-  "files.trimTrailingWhitespace": false,
-  "eslint.autoFixOnSave": true,
-  "editor.renderWhitespace": "boundary",
-  "prettier.eslintIntegration": true,
-  // this isn't really underline-thin but we hack it to be a thicker cursor
-  // "editor.cursorStyle": "underline-thin",
-  // "editor.cursorBlinking": "solid",
-  "workbench.startupEditor": "newUntitledFile",
-  "terminal.integrated.fontFamily": "Source Code Pro for Powerline",
   "terminal.integrated.fontSize": 14,
-  "terminal.integrated.fontWeightBold": "500",
-  "terminal.integrated.lineHeight": 1.16,
-  "files.associations": {
-    "*.js": "javascriptreact"
-  },
-  "emmet.includeLanguages": {
-    "javascript": "javascriptreact"
-  },
-  "emmet.triggerExpansionOnTab": true,
-  "window.zoomLevel": 2,
-  "breadcrumbs.enabled": false,
-  "javascript.validate.enable": false,
-  "workbench.colorTheme": "Cobalt2",
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  "terminal.integrated.rendererType": "dom",
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "tslint.alwaysShowRuleFailuresAsWarnings": true,
-  "tsimporter.disabled": true,
-  "editor.renderControlCharacters": true,
-  // "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
-  "python.pythonPath": "python3",
-  "editor.tabSize": 4,
-  "files.insertFinalNewline": true,
-  "[python]": {
-    "editor.formatOnSave": false,
-  }
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/node_modules": true
+  },
+  "[javascript]": {
+    "editor.tabSize": 2
+  },
+  "[typescriptreact]": {
+    "editor.tabSize": 2
+  },
+  "[typescript]": {
+    "editor.tabSize": 2
+  },
+  "[graphql]": {
+    "editor.tabSize": 2
+  },
+  "editor.minimap.enabled": false,
+  "explorer.confirmDragAndDrop": false,
+  "workbench.statusBar.feedback.visible": false,
+  "workbench.editor.labelFormat": "short",
+  "terminal.integrated.rendererType": "dom",
+  "emmet.excludeLanguages": ["typescript", "typescriptreact", "javascript"],
+  "terminal.integrated.shell.osx": "/usr/local/bin/fish",
+  "workbench.editor.showTabs": true,
+  "breadcrumbs.enabled": true
 }
-

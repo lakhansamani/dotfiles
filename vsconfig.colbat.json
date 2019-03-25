@@ -42,5 +42,6 @@
   "files.insertFinalNewline": true,
   "[python]": {
     "editor.formatOnSave": false
-  }
+  },
+  "vim.disableExtension": true
 }
