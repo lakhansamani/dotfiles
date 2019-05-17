@@ -1,0 +1,97 @@
+{
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.snippetSuggestions": "top",
+  "editor.fontFamily": "OperatorMono-Book",
+  "editor.fontLigatures": true,
+  "editor.fontWeight": "300",
+  "editor.fontSize": 14,
+  "editor.lineHeight": 30,
+  "editor.letterSpacing": 0.5,
+  "files.trimTrailingWhitespace": false,
+  "eslint.autoFixOnSave": true,
+  // "editor.renderWhitespace": "boundary",
+  "prettier.eslintIntegration": true,
+  // this isn't really underline-thin but we hack it to be a thicker cursor
+  // "editor.cursorStyle": "underline-thin",
+  // "editor.cursorBlinking": "solid",
+  "workbench.startupEditor": "newUntitledFile",
+  "terminal.integrated.fontFamily": "Source Code Pro for Powerline",
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.fontWeightBold": "500",
+  "terminal.integrated.lineHeight": 1.16,
+  "files.associations": {
+    "*.js": "javascriptreact"
+  },
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "emmet.triggerExpansionOnTab": true,
+  "window.zoomLevel": 1.5,
+  "breadcrumbs.enabled": false,
+  "javascript.validate.enable": false,
+  "workbench.colorTheme": "Night Owl",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "terminal.integrated.rendererType": "dom",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "tslint.alwaysShowRuleFailuresAsWarnings": true,
+  "tsimporter.disabled": true,
+  "editor.renderControlCharacters": true,
+  // "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "python.pythonPath": "python3",
+  "editor.tabSize": 4,
+  "files.insertFinalNewline": true,
+  "[python]": {
+    "editor.formatOnSave": false
+  },
+  "vim.disableExtension": true,
+  "workbench.colorCustomizations": {
+    "[Night Owl]": {
+      "activityBar.background": "#000C1D",
+      "activityBar.border": "#102a44",
+      "sideBar.background": "#001122",
+      "sideBar.border": "#102a44",
+      "sideBar.foreground": "#8BADC1"
+    },
+    "[Night Owl No Italics]": {
+      "activityBar.background": "#000C1D",
+      "activityBar.border": "#102a44",
+      "sideBar.background": "#001122",
+      "sideBar.border": "#102a44",
+      "sideBar.foreground": "#8BADC1"
+    }
+  },
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": [
+          //following will be in italic (=FlottFlott)
+          "comment",
+          // "entity.name.type.class", //class names
+          "keyword", //import, export, return…
+          "constant", //String, Number, Boolean…, this, super
+          "storage.modifier" //static keyword
+          // "storage.type.class.js" //class keyword
+        ],
+        "settings": {
+          "fontStyle": "italic"
+        }
+      },
+      {
+        "scope": [
+          //following will be excluded from italics (VSCode has some defaults for italics)
+          "invalid",
+          "keyword.operator",
+          "constant.numeric.css",
+          "keyword.other.unit.px.css",
+          "constant.numeric.decimal.js",
+          "constant.numeric.json"
+        ],
+        "settings": {
+          "fontStyle": ""
+        }
+      }
+    ]
+  }
+}
+
