@@ -12,6 +12,9 @@ call plug#begin('~/.vm/plugged')
   Plug 'w0rp/ale'
   Plug 'morhetz/gruvbox'
   Plug 'editorconfig/editorconfig-vim'
+  Plug 'leafgarland/typescript-vim'
+  Plug 'flowtype/vim-flow'
+  Plug 'mileszs/ack.vim'
 call plug#end()
 
 " Good defaults
@@ -25,10 +28,13 @@ set noruler
 set noshowcmd
 set number
 set hlsearch
+set modifiable
+set showtabline=2
+set ma
 syntax on
 
 " Tab expansion
-set shiftwidth=4
+set shiftwidth=2
 set expandtab
 set softtabstop=0 noexpandtab
 
@@ -80,3 +86,6 @@ vnoremap <C-k> :m '<-2<CR>gv=gv
 " Navigate faster
 noremap <S-Up> 5k
 noremap <S-Down> 5j
+
+
+
