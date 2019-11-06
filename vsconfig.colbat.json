@@ -4,12 +4,11 @@
   "editor.fontFamily": "Operator Mono, Menlo, Monaco, 'Courier New', monospace",
   "editor.fontWeight": "300",
   "editor.fontSize": 14,
-  "editor.lineHeight": 30,
+  "editor.lineHeight": 28,
   "editor.letterSpacing": 0.5,
   "files.trimTrailingWhitespace": false,
   "eslint.autoFixOnSave": true,
   "editor.renderWhitespace": "boundary",
-  "prettier.eslintIntegration": true,
   // this isn't really underline-thin but we hack it to be a thicker cursor
   // "editor.cursorStyle": "underline-thin",
   // "editor.cursorBlinking": "solid",
@@ -17,7 +16,7 @@
   "terminal.integrated.fontFamily": "Source Code Pro for Powerline",
   "terminal.integrated.fontSize": 14,
   "terminal.integrated.fontWeightBold": "500",
-  "terminal.integrated.lineHeight": 1.16,
+  // "terminal.integrated.lineHeight": 1.16,
   "files.associations": {
     "*.js": "javascriptreact"
   },
@@ -25,7 +24,7 @@
     "javascript": "javascriptreact"
   },
   "emmet.triggerExpansionOnTab": true,
-  "window.zoomLevel": 2,
+  "window.zoomLevel": 0.5,
   "breadcrumbs.enabled": false,
   "javascript.validate.enable": false,
   "workbench.colorTheme": "Cobalt2",
@@ -33,7 +32,6 @@
   "terminal.integrated.rendererType": "dom",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "tslint.alwaysShowRuleFailuresAsWarnings": true,
-  "tsimporter.disabled": true,
   "editor.renderControlCharacters": true,
   // "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
@@ -43,5 +41,13 @@
   "[python]": {
     "editor.formatOnSave": false
   },
-  "vim.disableExtension": true
+  "workbench.settings.editor": "json",
+  "workbench.activityBar.visible": false,
+  "editor.minimap.enabled": false,
+  "cSpell.userWords": [
+    "dockerize"
+  ],
+  "vscode_custom_css.imports": [
+    "/Volumes/Macintosh HD/Users/lakhansamani/.vscodestyles.css"
+  ],
 }
