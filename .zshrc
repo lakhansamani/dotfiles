@@ -3,19 +3,21 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/lakhansamani/.oh-my-zsh"
-
+# eval "$(starship init zsh)"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-# ZSH_THEME="robbyrussell"
+ZSH_THEME="robbyrussell"
 # ZSH_THEME="steeef2"
 # ZSH_THEME="fishy"
 # ZSH_THEME="cobalt2"
 # ZSH_THEME="spaceship"
 # ZSH_THEME="hyper-oh-my-zsh"
 # ZSH_THEME="aphrodite"
-ZSH_THEME="agnoster"
+# ZSH_THEME="agnoster"
+# ZSH_THEME="ag-v2"
+# ZSH_THEME="intheloop"
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
@@ -74,8 +76,41 @@ DISABLE_AUTO_UPDATE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+
+
+# start prompt stuff
+# PROMPT STUFF
+# GREEN=$(tput setaf 2);
+# YELLOW=$(tput setaf 3);
+# RESET=$(tput sgr0);
+
+# function git_branch {
+#   # Shows the current branch if in a git repository
+#   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\ \(\1\)/';
+# }
+
+# function random_element {
+#   declare -a array=("$@")
+#   r=$((RANDOM % ${#array[@]}))
+#   printf "%s\n" "${array[$r]}"
+# }
+
+# # Default Prompt
+# setEmoji () {
+#   EMOJI="$*"
+#   DISPLAY_DIR='${PWD/#$HOME/~}'
+#   DISPLAY_BRANCH='$(git_branch)'
+#   PROMPT="${YELLOW}${DISPLAY_DIR}${GREEN}${DISPLAY_BRANCH}${RESET} ${EMOJI}"$'\n'"$ ";
+# }
+
+# newRandomEmoji () {
+#   setEmoji "$(random_element 😅 👽 🔥 🚀 👻 ⛄ 👾 🍔 😄 🍰 🐑 😎 🏎 🤖 😇 😼 💪 🦄 🥓 🌮 🎉 💯 ⚛️ 🐠 🐳 🐿 🥳 🤩 🤯 🤠 👨‍💻 🦸‍ 🧝‍ 🧞‍ 🧙‍ 👨‍🚀 👨‍🔬 🕺 🦁 🐶 🐵 🐻 🦊 🐙 🦚 ✨ ☄️ ⚡️ 💥 💫 🧬 🔮 ⚗️ 🎊 🔭 ⚪️ 🔱)"
+# }
+
+# newRandomEmoji
+# end prompt stuff
 plugins=(
-    git
+    github
     zsh-autosuggestions
 )
 
@@ -170,7 +205,6 @@ if [ -f '/Users/lakhansamani/google-cloud-sdk/completion.zsh.inc' ]; then . '/Us
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 export PATH="/usr/local/lib/node_modules/bin:$PATH"
 export OPEN_SSL_ROOT_DIR="/usr/local/opt/openssl"
-export PKG_CONFIG_PATH="usr/local/share/pkgconfig"
 export PROMPT_EOL_MARK=""
 export PATH=$PATH:/usr/local/kubebuilder/bin
 export EDITOR=vim
@@ -193,15 +227,18 @@ alias cf="cd ~/forks"
 alias cfc="cd ~/forks/contentment-foundation"
 [[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc
 export PATH=/Applications/XAMPP/xamppfiles/bin:$PATH
-export PATH=/Users/lakhansamani/Library/Python/3.7/bin:$PATH
-alias gpom="git push origin master"
-alias gset="git remote set-url"
-alias gs="git status"
-alias gl="git log"
-alias gadmit="git add . && git commit -m"
-alias rnri="react-native run-ios"
-alias gc="git checkout"
-alias gcb="git checkout -b "
-alias gupdatefork="git fetch usptream && git checkout master && git rebase
-upstream/master"
-alias gcm="git checkout master"
+# export PATH=/Users/lakhansamani/Library/Python/3.7/bin:$PATH
+export LDFLAGS="-L/usr/local/opt/ruby/lib"
+export CPPFLAGS="-I/usr/local/opt/ruby/include"
+export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
+alias awk=gawk
+
+function gc { git commit -m "$@"; }
+alias gs="git status";
+alias gp="git pull";
+alias gf="git fetch";
+alias gpush="git push";
+alias gd="git diff";
+alias ga="git add .";
+dif() { git diff --color --no-index "$1" "$2" | diff-so-fancy; }
+cdiff() { code --diff "$1" "$2"; }
