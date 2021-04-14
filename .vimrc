@@ -1,82 +1,49 @@
-call plug#begin('~/.vm/plugged')
-  Plug 'pangloss/vim-javascript'
-  Plug 'mxw/vim-jsx'
-  Plug 'jxnblk/vim-mdx-js'
-  Plug 'tpope/vim-surround'
-  Plug 'tpope/vim-commentary'
-  Plug 'tpope/vim-sensible'
-  Plug 'tpope/vim-vinegar'
-  Plug 'tpope/vim-sleuth'
-  Plug 'jparise/vim-graphql'
-  Plug 'scrooloose/nerdtree'
-  Plug 'drewtempelmeyer/palenight.vim'
-  Plug 'chemzqm/vim-jsx-improve'
-  Plug 'prettier/vim-prettier'
-  Plug 'w0rp/ale'
-  Plug 'morhetz/gruvbox'
-  Plug 'editorconfig/editorconfig-vim'
+call plug#begin('~/.vim/plugged')
   Plug 'leafgarland/typescript-vim'
-  Plug 'flowtype/vim-flow'
-  Plug 'mileszs/ack.vim'
-  Plug 'sheerun/vim-polyglot'
-  Plug 'wincent/command-t', {
-    \ 'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make' }
-  Plug 'wincent/terminus'
-  Plug 'ervandew/supertab'
-  Plug 'alvan/vim-closetag'
-  Plug 'tpope/vim-commentary'
-  Plug 'chriskempson/base16-vim'
+  Plug 'peitalin/vim-jsx-typescript'
+  Plug 'prettier/vim-prettier'
+  Plug 'vim-syntastic/syntastic'
+  Plug 'preservim/nerdtree'
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-  Plug 'jiangmiao/auto-pairs'
+  Plug 'vim-airline/vim-airline'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  " Plug 'relastle/bluewery.vim'
+  " Plug 'morhetz/gruvbox'
+  "Plug 'jacoborus/tender.vim'
+  Plug 'ctrlpvim/ctrlp.vim' " fuzzy find files
   Plug 'preservim/nerdcommenter'
-  Plug 'HerringtonDarkholme/yats.vim'
-  Plug 'stephpy/vim-yaml'
-  Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'fugalh/desert.vim'
 call plug#end()
 
-" Good defaults
+syntax on
+colorscheme desert
 
-
-set nocompatible
+set tabstop=2
+set shiftwidth=2
+set expandtab
+" setting auto indentation
+set ai
+set number
+set hlsearch
+set ruler
+set splitbelow
+set splitright
 set autoindent
 set smartindent
 set smarttab
-set history=50
-set noruler
-set noshowcmd
-set number
-set hlsearch
-set modifiable
-set showtabline=2
-set ma
-" colorscheme base16-default-dark
-" set spell spelllang=en_us
+set relativenumber
+set incsearch
 
-" Tab expansion
-set shiftwidth=2
-set expandtab
-" set softtabstop=0 noexpandtab
-" set foldmethod=indent
-set backspace=indent,eol,start
-filetype plugin indent on
+" set signcolumn=yes
+" set colorcolumn=120
+" highlight ColorColumn ctermbg=0 guibg=lightgrey
+" highlight Comment ctermfg=grey
+"
+"
+" Set leader key
+let mapleader = ","
 
-set path+=**
-set wildmenu
-
-set guifont=Monaco:h16
-" set guioptions=
-set linespace=16
-
-nmap ,n :NERDTreeFind<CR>
-nmap ,m :NERDTreeToggle<CR>
-let NERDTreeShowHidden=1
-
-" Auto indent pasted text
-nnoremap p p=`]<C-o>
-nnoremap P P=`]<C-o>
-
-" single quotes over double quotes
-" Prettier default: false
+" Prettier configs
 let g:prettier#config#single_quote = 'true'
 let g:prettier#config#trailing_comma = 'all'
 let g:prettier#config#use_tabs = 'false'
@@ -85,83 +52,188 @@ let g:prettier#config#bracket_spacing = 'true'
 let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 
-let b:ale_fixers = {'javascript': ['prettier', 'eslint']}
-let g:NERDTreeNodeDelimiter = "\u00a0"
+" prettier command for coc
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
-" clear search with shift+enter
-nnoremap <S-CR> :noh<CR>
+" coc config
+let g:coc_global_extensions = [
+  \ 'coc-snippets',
+  \ 'coc-pairs',
+  \ 'coc-tsserver',
+  \ 'coc-eslint',
+  \ 'coc-prettier',
+  \ 'coc-json',
+  \ 'coc-go',
+  \ ]
 
-" copy to clipboard
-set clipboard=unnamed
-map <C-x> :!pbcopy<CR>
-vmap <C-c> :w !pbcopy<CR><CR>
+" from readme
+" if hidden is not set, TextEdit might fail.
+set hidden " Some servers have issues with backup files, see #649 set nobackup set nowritebackup " Better display for messages set cmdheight=2 " You will have bad experience for diagnostic messages when it's default 4000.
+set updatetime=300
 
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
 
-" Mappings for moving lines and preserving indentation
-" http://vim.wikia.com/wiki/Moving_lines_up_or_down
-nnoremap <C-j> :m .+1<CR>==
-nnoremap <C-k> :m .-2<CR>==
-vnoremap <C-j> :m '>+1<CR>gv=gv
-vnoremap <C-k> :m '<-2<CR>gv=gv
+" always show signcolumns
+set signcolumn=yes
 
-" Navigate faster
-noremap <S-Up> 5k
-noremap <S-Down> 5j
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-" Automatically indent pasted lines
-nnoremap p p=`]
-nnoremap P P=`]
-
-" Re-select the last pasted text
-nnoremap gp `[v`]
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Searching
-
-" Highlight search matches
-set hlsearch
-
-" Ignore node_modules with command-t
-let g:CommandTWildIgnore=&wildignore . ",*/node_modules"
-
-" Open :Ack with <Leader>a
-nnoremap <Leader>a :Ack<Space>
-vnoremap <Leader>a :Ack<Space>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Syntax
-
-" Allow JSX in .js files
-let g:jsx_ext_required=0
-
-" Commenting lines
-noremap <leader>/ :Commentary<cr>
-autocmd FileType apache setlocal commentstring=#\ %s
-
-" Change line color
-" highlight LineNr guifg=Grey
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
 
-" Add spaces after comment delimiters by default
-let g:NERDSpaceDelims = 1
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Or use `complete_info` if your vim support it, like:
+" inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 
-" Use compact syntax for prettified multi-line comments
-let g:NERDCompactSexyComs = 1
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
-" Align line-wise comment delimiters flush left instead of following code indentation
-let g:NERDDefaultAlign = 'left'
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
-" Set a language to use its alternate delimiters by default
-let g:NERDAltDelims_java = 1
 
-" Add your own custom formats or override the defaults
-let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-" Allow commenting and inverting empty lines (useful when commenting a region)
-let g:NERDCommentEmptyLines = 1
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
-" Enable trimming of trailing whitespace when uncommenting
-let g:NERDTrimTrailingWhitespace = 1
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" Enable NERDCommenterToggle to check all selected lines is commented or not 
-let g:NERDToggleCheckAllLines = 1
+" Remap for rename current word
+nmap <F2> <Plug>(coc-rename)
+
+" Remap for format selected region
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Remap for do codeAction of current line
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Fix autofix problem of current line
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Create mappings for function text object, requires document symbols feature of languageserver.
+xmap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap if <Plug>(coc-funcobj-i)
+omap af <Plug>(coc-funcobj-a)
+
+" Use <C-d> for select selections ranges, needs server support, like: coc-tsserver, coc-python
+nmap <silent> <C-d> <Plug>(coc-range-select)
+xmap <silent> <C-d> <Plug>(coc-range-select)
+
+" Use `:Format` to format current buffer
+command! -nargs=0 Format :call CocAction('format')
+
+" Use `:Fold` to fold current buffer
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" use `:OR` for organize import of current buffer
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+" Add status line support, for integration with other plugin, checkout `:h coc-status`
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+" Using CocList
+" Show all diagnostics
+nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+" Manage extensions
+nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+" Show commands
+nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+" Find symbol of current document
+nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+" Search workspace symbols
+nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+" Resume latest coc list
+nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+" Run goimports along gofmt on each save
+let g:go_fmt_command = "goimports" 
+" Automatically get signature/type info for object under cursor
+let g:go_auto_type_info = 1
+
+
+let g:NERDTreeIgnore = ['^node_modules$']
+
+" Nerd tree configs
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-b> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+
+" sync open file with NERDTree
+" " Check if NERDTree is open or active
+function! IsNERDTreeOpen()        
+  "return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+  return exists("g:NERDTree") && g:NERDTree.IsOpen()
+endfunction
+
+" Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
+" file, and we're not in vimdiff
+function! SyncTree()
+  if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
+    NERDTreeFind
+    wincmd p
+  endif
+endfunction
+
+" Highlight currently open buffer in NERDTree
+" autocmd BufEnter * call SyncTree()
+
+" Set powerline font for vim/airline
+" let g:airline_powerline_fonts = 1
+
+
+" Copy selected text
+vmap <C-x> :!pbcopy<CR>  
+vmap <C-c> :w !pbcopy<CR><CR> 
+
+" ctrlp
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
+
+" nerd commenter
+vmap ++ <plug>NERDCommenterToggle
+nmap ++ <plug>NERDCommenterToggle

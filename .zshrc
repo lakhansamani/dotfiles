@@ -6,8 +6,7 @@ export ZSH="/Users/lakhansamani/.oh-my-zsh"
 # eval "$(starship init zsh)"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+# to know which specific one was loaded, run: echo $RANDOM_THEME # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="robbyrussell"
 # ZSH_THEME="steeef2"
 # ZSH_THEME="fishy"
@@ -18,6 +17,8 @@ ZSH_THEME="robbyrussell"
 # ZSH_THEME="agnoster"
 # ZSH_THEME="ag-v2"
 # ZSH_THEME="intheloop"
+# ZSH_THEME="clean"
+# ZSH_THEME="afowler"
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
@@ -186,8 +187,6 @@ PATH="$PATH:$HOME/.my_bin";
 CDPATH=.:$HOME:$HOME/code:$HOME/Desktop
 # CDPATH=($HOME $HOME/code $HOME/Desktop)
 
-[[ -s "/Users/lakhansamani/.gvm/scripts/gvm" ]] && source "/Users/lakhansamani/.gvm/scripts/gvm"
-
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
 [[ -f /usr/local/lib/node_modules/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /usr/local/lib/node_modules/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
@@ -196,35 +195,30 @@ CDPATH=.:$HOME:$HOME/code:$HOME/Desktop
 [[ -f /usr/local/lib/node_modules/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
 # tabtab source for slss package
 # uninstall by removing these lines or running `tabtab uninstall slss`
-[[ -f /usr/local/lib/node_modules/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /usr/local/lib/node_modules/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/lakhansamani/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/lakhansamani/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/lakhansamani/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/lakhansamani/google-cloud-sdk/completion.zsh.inc'; fi
-export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+[[ -f /usr/local/lib/node_modules/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /usr/local/lib/node_modules/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zshexport OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 export PATH="/usr/local/lib/node_modules/bin:$PATH"
 export OPEN_SSL_ROOT_DIR="/usr/local/opt/openssl"
 export PROMPT_EOL_MARK=""
 export PATH=$PATH:/usr/local/kubebuilder/bin
+export PATH=$HOME/go/bin:$PATH
 export EDITOR=vim
+export GOPATH=$HOME/go
 # unsetopt PROMPT_SP
 #
 # use hub instead of git
 # alias git=hub
 
-# alias for code
-alias c="code ."
 #alias for go projects
 alias cda="cd $GOPATH/src/github.com/siddharthlatest/accounts_api"
-alias cde="cd $GOPATH/src/github.com/appbaseio-confidential/eaas-provisioner"
 
 alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
 alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
 
+
 alias cfa="cd ~/forks/appbaseio"
 alias cf="cd ~/forks"
 alias cfc="cd ~/forks/contentment-foundation"
+
 [[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc
 export PATH=/Applications/XAMPP/xamppfiles/bin:$PATH
 # export PATH=/Users/lakhansamani/Library/Python/3.7/bin:$PATH
@@ -242,3 +236,22 @@ alias gd="git diff";
 alias ga="git add .";
 dif() { git diff --color --no-index "$1" "$2" | diff-so-fancy; }
 cdiff() { code --diff "$1" "$2"; }
+
+export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+export CLOUDSDK_PYTHON=python
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/lakhansamani/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/lakhansamani/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/lakhansamani/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/lakhansamani/google-cloud-sdk/completion.zsh.inc'; fi
+export PATH="/usr/local/opt/libpq/bin:$PATH"
+
+
+# python alias
+alias python=python3
+alias pip=pip3
+
+
+# Change directory listing color
+export LSCOLORS=GxFxCxDxBxegedabagaced
