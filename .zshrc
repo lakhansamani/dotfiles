@@ -7,14 +7,14 @@ export ZSH="/Users/lakhansamani/.oh-my-zsh"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
 # ZSH_THEME="steeef2"
 # ZSH_THEME="fishy"
 # ZSH_THEME="cobalt2"
 # ZSH_THEME="spaceship"
 # ZSH_THEME="hyper-oh-my-zsh"
 # ZSH_THEME="aphrodite"
-# ZSH_THEME="agnoster"
+ZSH_THEME="agnoster"
 # ZSH_THEME="ag-v2"
 # ZSH_THEME="intheloop"
 # ZSH_THEME="clean"
@@ -249,8 +249,8 @@ export PATH="/usr/local/opt/libpq/bin:$PATH"
 
 
 # python alias
-alias python=python3
-alias pip=pip3
+# alias python=python3
+# alias pip=pip3
 
 
 # Change directory listing color
