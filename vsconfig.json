@@ -1,75 +1,124 @@
 {
-  "editor.multiCursorModifier": "ctrlCmd",
-  "editor.snippetSuggestions": "top",
   "editor.fontSize": 15,
-  "editor.lineHeight": 28,
-  "editor.letterSpacing": 0.5,
-  "files.trimTrailingWhitespace": false,
-  // "editor.renderWhitespace": "boundary",
-  "workbench.startupEditor": "newUntitledFile",
-  "terminal.integrated.fontFamily": "Source Code Pro for Powerline",
-  "terminal.integrated.fontSize": 14,
-  "terminal.integrated.fontWeightBold": "500",
-  "files.associations": {
-    "*.js": "javascriptreact"
+   "editor.lineHeight": 28,
+  "editor.wordWrap": "on",
+  // "editor.fontFamily": " Source Code Pro, Dank Mono,'SF Mono', 'M+ 1m',Ubuntu Mono derivative Powerline, Menlo,  'Courier New', monospace, MonoLisa",
+  "workbench.list.openMode": "singleClick",
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true
+    // "**/node_modules": true
   },
-  "emmet.includeLanguages": {
-    "javascript": "javascriptreact"
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
   },
-  "emmet.triggerExpansionOnTab": true,
-  "breadcrumbs.enabled": false,
-  "javascript.validate.enable": false,
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  "terminal.integrated.rendererType": "dom",
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "tslint.alwaysShowRuleFailuresAsWarnings": true,
-  "editor.renderControlCharacters": true,
-  "editor.formatOnPaste": true,
-  "editor.formatOnSave": true,
-  "python.pythonPath": "python3",
-  "editor.tabSize": 4,
-  "files.insertFinalNewline": true,
-  "[python]": {
-    "editor.formatOnSave": false
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[less]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[JSON]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+"editor.formatOnSave": true
+  },
+  "[graphql]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true 
+  },
+  "[md]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+    "editor.formatOnSave": true
+  },
+  "[yaml]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": "keep",
+    "gitlens.codeLens.scopes": ["document"],
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": true
+    }
   },
   "workbench.settings.editor": "json",
-  "workbench.activityBar.visible": true,
+  "editor.formatOnPaste": true,
   "editor.minimap.enabled": false,
-  "cSpell.userWords": [
-    "ansible",
-    "com",
-    "dev",
-    "dockerize",
-    "favourite",
-    "favourites",
-    "github",
-    "gmail",
-    "hasura",
-    "https",
-    "kibana",
-    "lakhan",
-    "lakhansamani",
-    "samani",
-    "signup",
-    "uuid",
-    "wotnot"
+  "workbench.activityBar.visible": true,
+  "workbench.statusBar.visible": true,
+  "workbench.startupEditor": "newUntitledFile",
+  "editor.renderWhitespace": "none",
+  "editor.renderIndentGuides": true,
+  "go.lintOnSave": "file",
+  "go.formatTool": "goimports",
+  "go.useLanguageServer": true,
+  "[go]": {
+    "editor.defaultFormatter": "golang.go",
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    }
+  },
+  "gopls": {
+    "formatting.gofumpt": true
+  },
+  "go.docsTool": "gogetdoc",
+  "extensions.ignoreRecommendations": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "terminal.integrated.fontSize": 15,
+  // "terminal.integrated.shell.osx": "/usr/local/bin/fish",
+  "terminal.integrated.fontFamily": "Source Code Pro",
+  "editor.fontLigatures": true,
+  "vim.smartRelativeLine": true,
+  "cSpell.userWords": ["pubnub"],
+  "vscode_custom_css.imports": ["file:///Users/lakhansamani/custom.css"],
+  "vscode_custom_css.policy": true,
+  "prettier.singleQuote": true,
+  "prettier.useTabs": false,
+  // "workbench.panel.defaultLocation": "right",
+  "workbench.editorAssociations": [
+    {
+      "viewType": "jupyter.notebook.ipynb",
+      "filenamePattern": "*.ipynb"
+    }
   ],
-  // "editor.codeActionsOnSave": {
-  //   "source.fixAll.eslint": true
-  // },
-  // "eslint.options": {
-  //   "rules": {
-  //     "arrow-parens": 0,
-  //     "operator-linebreak": 0,
-  //   }
-  // },
-  "editor.wordWrap": "on",
-  "[javascript]": {
+  "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "editor.minimap.scale": 1,
-  "prettier.singleQuote": true,
-  "window.zoomLevel": 1,
+  "go.toolsManagement.autoUpdate": true,
+  "workbench.colorTheme": "Night Owl",
   "workbench.colorCustomizations": {
     "[Night Owl]": {
       "activityBar.background": "#000C1D",
@@ -78,15 +127,12 @@
       "sideBar.border": "#102a44",
       "sideBar.foreground": "#8BADC1"
     },
-    "[Night Owl No Italics]": {
+    "[Night Owl (No Italics)]": {
       "activityBar.background": "#000C1D",
       "activityBar.border": "#102a44",
       "sideBar.background": "#001122",
       "sideBar.border": "#102a44",
       "sideBar.foreground": "#8BADC1"
     }
-  },
-  "go.formatTool": "goimports",
-  "workbench.colorTheme": "Shades of Purple",
-  "editor.renderIndentGuides": true
+  }
 }
